@@ -1,6 +1,7 @@
 package com.ncwu.tijiancmsserver.controller;
 
 import com.ncwu.tijiancmsserver.mapper.DoctorMapper;
+import com.ncwu.tijiancmsserver.service.DoctorService;
 import com.ncwu.tijiancmsserver.model.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

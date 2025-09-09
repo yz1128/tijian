@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.DoctorMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Doctor">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.DoctorMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Doctor">
     <!--@mbg.generated-->
     <!--@Table doctor-->
     <id column="docId" jdbcType="INTEGER" property="docid" />
@@ -27,14 +27,14 @@
     delete from doctor
     where docId = #{docid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="docId" keyProperty="docid" parameterType="com.neudeu.tijiancmsserver.model.Doctor" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="docId" keyProperty="docid" parameterType="com.ncwu.tijiancmsserver.model.Doctor" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into doctor (docCode, realName, `password`, 
       sex, deptno)
     values (#{doccode,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{deptno,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="docId" keyProperty="docid" parameterType="com.neudeu.tijiancmsserver.model.Doctor" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="docId" keyProperty="docid" parameterType="com.ncwu.tijiancmsserver.model.Doctor" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into doctor
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -72,7 +72,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Doctor">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Doctor">
     <!--@mbg.generated-->
     update doctor
     <set>
@@ -94,7 +94,7 @@
     </set>
     where docId = #{docid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Doctor">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Doctor">
     <!--@mbg.generated-->
     update doctor
     set docCode = #{doccode,jdbcType=VARCHAR},
@@ -104,4 +104,7 @@
       deptno = #{deptno,jdbcType=INTEGER}
     where docId = #{docid,jdbcType=INTEGER}
   </update>
+  <select id="selectByDocCodeByPass" resultMap="BaseResultMap">
+    select * from doctor where docCode = #{docCode} and password = #{password}
+  </select>
 </mapper>

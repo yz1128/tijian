@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.UsersMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Users">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Users">
     <!--@mbg.generated-->
     <!--@Table users-->
     <id column="userId" jdbcType="VARCHAR" property="userid" />
@@ -28,7 +28,7 @@
     delete from users
     where userId = #{userid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.neudeu.tijiancmsserver.model.Users">
+  <insert id="insert" parameterType="com.ncwu.tijiancmsserver.model.Users">
     <!--@mbg.generated-->
     insert into users (userId, `password`, realName, 
       sex, identityCard, birthday, 
@@ -37,7 +37,7 @@
       #{sex,jdbcType=INTEGER}, #{identitycard,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
       #{usertype,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.neudeu.tijiancmsserver.model.Users">
+  <insert id="insertSelective" parameterType="com.ncwu.tijiancmsserver.model.Users">
     <!--@mbg.generated-->
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Users">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Users">
     <!--@mbg.generated-->
     update users
     <set>
@@ -112,7 +112,7 @@
     </set>
     where userId = #{userid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Users">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Users">
     <!--@mbg.generated-->
     update users
     set `password` = #{password,jdbcType=VARCHAR},

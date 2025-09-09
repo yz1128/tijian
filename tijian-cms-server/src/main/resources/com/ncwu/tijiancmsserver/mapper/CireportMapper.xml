@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.CireportMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Cireport">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.CireportMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Cireport">
     <!--@mbg.generated-->
     <!--@Table cireport-->
     <id column="cirId" jdbcType="INTEGER" property="cirid" />
@@ -25,14 +25,14 @@
     delete from cireport
     where cirId = #{cirid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="cirId" keyProperty="cirid" parameterType="com.neudeu.tijiancmsserver.model.Cireport" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="cirId" keyProperty="cirid" parameterType="com.ncwu.tijiancmsserver.model.Cireport" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into cireport (ciId, ciName, orderId
       )
     values (#{ciid,jdbcType=INTEGER}, #{ciname,jdbcType=VARCHAR}, #{orderid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="cirId" keyProperty="cirid" parameterType="com.neudeu.tijiancmsserver.model.Cireport" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="cirId" keyProperty="cirid" parameterType="com.ncwu.tijiancmsserver.model.Cireport" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into cireport
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -58,7 +58,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Cireport">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Cireport">
     <!--@mbg.generated-->
     update cireport
     <set>
@@ -74,7 +74,7 @@
     </set>
     where cirId = #{cirid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Cireport">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Cireport">
     <!--@mbg.generated-->
     update cireport
     set ciId = #{ciid,jdbcType=INTEGER},

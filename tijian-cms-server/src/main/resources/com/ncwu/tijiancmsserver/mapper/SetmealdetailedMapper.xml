@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.SetmealdetailedMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Setmealdetailed">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.SetmealdetailedMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Setmealdetailed">
     <!--@mbg.generated-->
     <!--@Table setmealdetailed-->
     <id column="sdId" jdbcType="INTEGER" property="sdid" />
@@ -24,12 +24,12 @@
     delete from setmealdetailed
     where sdId = #{sdid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="sdId" keyProperty="sdid" parameterType="com.neudeu.tijiancmsserver.model.Setmealdetailed" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="sdId" keyProperty="sdid" parameterType="com.ncwu.tijiancmsserver.model.Setmealdetailed" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into setmealdetailed (smId, ciId)
     values (#{smid,jdbcType=INTEGER}, #{ciid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="sdId" keyProperty="sdid" parameterType="com.neudeu.tijiancmsserver.model.Setmealdetailed" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="sdId" keyProperty="sdid" parameterType="com.ncwu.tijiancmsserver.model.Setmealdetailed" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into setmealdetailed
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -49,7 +49,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Setmealdetailed">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Setmealdetailed">
     <!--@mbg.generated-->
     update setmealdetailed
     <set>
@@ -62,7 +62,7 @@
     </set>
     where sdId = #{sdid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Setmealdetailed">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Setmealdetailed">
     <!--@mbg.generated-->
     update setmealdetailed
     set smId = #{smid,jdbcType=INTEGER},

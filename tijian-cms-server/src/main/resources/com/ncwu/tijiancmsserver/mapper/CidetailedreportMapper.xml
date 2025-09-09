@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.CidetailedreportMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Cidetailedreport">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.CidetailedreportMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Cidetailedreport">
     <!--@mbg.generated-->
     <!--@Table cidetailedreport-->
     <id column="cidrId" jdbcType="INTEGER" property="cidrid" />
@@ -34,7 +34,7 @@
     delete from cidetailedreport
     where cidrId = #{cidrid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="cidrId" keyProperty="cidrid" parameterType="com.neudeu.tijiancmsserver.model.Cidetailedreport" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="cidrId" keyProperty="cidrid" parameterType="com.ncwu.tijiancmsserver.model.Cidetailedreport" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into cidetailedreport (`name`, unit, minrange, 
       maxrange, normalValue, normalValueString, 
@@ -45,7 +45,7 @@
       #{type,jdbcType=INTEGER}, #{value,jdbcType=VARCHAR}, #{iserror,jdbcType=INTEGER}, 
       #{ciid,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="cidrId" keyProperty="cidrid" parameterType="com.neudeu.tijiancmsserver.model.Cidetailedreport" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="cidrId" keyProperty="cidrid" parameterType="com.ncwu.tijiancmsserver.model.Cidetailedreport" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into cidetailedreport
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -119,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Cidetailedreport">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Cidetailedreport">
     <!--@mbg.generated-->
     update cidetailedreport
     <set>
@@ -159,7 +159,7 @@
     </set>
     where cidrId = #{cidrid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Cidetailedreport">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Cidetailedreport">
     <!--@mbg.generated-->
     update cidetailedreport
     set `name` = #{name,jdbcType=VARCHAR},

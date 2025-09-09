@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.HospitalMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Hospital">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.HospitalMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Hospital">
     <!--@mbg.generated-->
     <!--@Table hospital-->
     <id column="hpId" jdbcType="INTEGER" property="hpid" />
@@ -30,7 +30,7 @@
     delete from hospital
     where hpId = #{hpid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="hpId" keyProperty="hpid" parameterType="com.neudeu.tijiancmsserver.model.Hospital" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="hpId" keyProperty="hpid" parameterType="com.ncwu.tijiancmsserver.model.Hospital" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into hospital (`name`, picture, telephone, 
       address, businessHours, deadline, 
@@ -39,7 +39,7 @@
       #{address,jdbcType=VARCHAR}, #{businesshours,jdbcType=VARCHAR}, #{deadline,jdbcType=VARCHAR}, 
       #{rule,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="hpId" keyProperty="hpid" parameterType="com.neudeu.tijiancmsserver.model.Hospital" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="hpId" keyProperty="hpid" parameterType="com.ncwu.tijiancmsserver.model.Hospital" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into hospital
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -95,7 +95,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Hospital">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Hospital">
     <!--@mbg.generated-->
     update hospital
     <set>
@@ -126,7 +126,7 @@
     </set>
     where hpId = #{hpid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Hospital">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Hospital">
     <!--@mbg.generated-->
     update hospital
     set `name` = #{name,jdbcType=VARCHAR},

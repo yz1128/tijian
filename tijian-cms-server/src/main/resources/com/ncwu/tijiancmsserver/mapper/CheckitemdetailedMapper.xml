@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.CheckitemdetailedMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Checkitemdetailed">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.CheckitemdetailedMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Checkitemdetailed">
     <!--@mbg.generated-->
     <!--@Table checkitemdetailed-->
     <id column="cdId" jdbcType="INTEGER" property="cdid" />
@@ -32,7 +32,7 @@
     delete from checkitemdetailed
     where cdId = #{cdid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="cdId" keyProperty="cdid" parameterType="com.neudeu.tijiancmsserver.model.Checkitemdetailed" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="cdId" keyProperty="cdid" parameterType="com.ncwu.tijiancmsserver.model.Checkitemdetailed" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into checkitemdetailed (`name`, unit, minrange, 
       maxrange, normalValue, normalValueString, 
@@ -43,7 +43,7 @@
       #{type,jdbcType=INTEGER}, #{ciid,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="cdId" keyProperty="cdid" parameterType="com.neudeu.tijiancmsserver.model.Checkitemdetailed" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="cdId" keyProperty="cdid" parameterType="com.ncwu.tijiancmsserver.model.Checkitemdetailed" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into checkitemdetailed
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -105,7 +105,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Checkitemdetailed">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Checkitemdetailed">
     <!--@mbg.generated-->
     update checkitemdetailed
     <set>
@@ -139,7 +139,7 @@
     </set>
     where cdId = #{cdid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Checkitemdetailed">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Checkitemdetailed">
     <!--@mbg.generated-->
     update checkitemdetailed
     set `name` = #{name,jdbcType=VARCHAR},

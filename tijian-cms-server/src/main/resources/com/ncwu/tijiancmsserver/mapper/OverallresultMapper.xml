@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.OverallresultMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Overallresult">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.OverallresultMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Overallresult">
     <!--@mbg.generated-->
     <!--@Table overallresult-->
     <id column="orId" jdbcType="INTEGER" property="orid" />
@@ -25,14 +25,14 @@
     delete from overallresult
     where orId = #{orid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="orId" keyProperty="orid" parameterType="com.neudeu.tijiancmsserver.model.Overallresult" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="orId" keyProperty="orid" parameterType="com.ncwu.tijiancmsserver.model.Overallresult" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into overallresult (title, content, orderId
       )
     values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{orderid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="orId" keyProperty="orid" parameterType="com.neudeu.tijiancmsserver.model.Overallresult" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="orId" keyProperty="orid" parameterType="com.ncwu.tijiancmsserver.model.Overallresult" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into overallresult
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -58,7 +58,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Overallresult">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Overallresult">
     <!--@mbg.generated-->
     update overallresult
     <set>
@@ -74,7 +74,7 @@
     </set>
     where orId = #{orid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Overallresult">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Overallresult">
     <!--@mbg.generated-->
     update overallresult
     set title = #{title,jdbcType=VARCHAR},

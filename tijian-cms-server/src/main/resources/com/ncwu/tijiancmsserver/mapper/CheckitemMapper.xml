@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neudeu.tijiancmsserver.mapper.CheckitemMapper">
-  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Checkitem">
+<mapper namespace="com.ncwu.tijiancmsserver.mapper.CheckitemMapper">
+  <resultMap id="BaseResultMap" type="com.ncwu.tijiancmsserver.model.Checkitem">
     <!--@mbg.generated-->
     <!--@Table checkitem-->
     <id column="ciId" jdbcType="INTEGER" property="ciid" />
@@ -26,14 +26,14 @@
     delete from checkitem
     where ciId = #{ciid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="ciId" keyProperty="ciid" parameterType="com.neudeu.tijiancmsserver.model.Checkitem" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="ciId" keyProperty="ciid" parameterType="com.ncwu.tijiancmsserver.model.Checkitem" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into checkitem (ciName, ciContent, meaning, 
       remarks)
     values (#{ciname,jdbcType=VARCHAR}, #{cicontent,jdbcType=VARCHAR}, #{meaning,jdbcType=VARCHAR}, 
       #{remarks,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="ciId" keyProperty="ciid" parameterType="com.neudeu.tijiancmsserver.model.Checkitem" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="ciId" keyProperty="ciid" parameterType="com.ncwu.tijiancmsserver.model.Checkitem" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into checkitem
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -65,7 +65,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Checkitem">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ncwu.tijiancmsserver.model.Checkitem">
     <!--@mbg.generated-->
     update checkitem
     <set>
@@ -84,7 +84,7 @@
     </set>
     where ciId = #{ciid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Checkitem">
+  <update id="updateByPrimaryKey" parameterType="com.ncwu.tijiancmsserver.model.Checkitem">
     <!--@mbg.generated-->
     update checkitem
     set ciName = #{ciname,jdbcType=VARCHAR},
