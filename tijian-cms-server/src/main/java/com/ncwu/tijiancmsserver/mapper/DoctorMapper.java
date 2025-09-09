@@ -1,6 +1,7 @@
 package com.ncwu.tijiancmsserver.mapper;
 
 import com.ncwu.tijiancmsserver.model.Doctor;
+import org.apache.ibatis.annotations.Param;
 
 public interface DoctorMapper {
     int deleteByPrimaryKey(Integer docid);
@@ -15,5 +16,5 @@ public interface DoctorMapper {
 
     int updateByPrimaryKey(Doctor record);
 
-    Doctor selectByDocCodeByPass(String docCode, String password);
+    Doctor selectByDocCodeByPass(@Param("docCode") String docCode,@Param("password") String password);
 }

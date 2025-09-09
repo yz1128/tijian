@@ -104,4 +104,12 @@
       `state` = #{state,jdbcType=INTEGER}
     where orderId = #{orderid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectCount" resultType="java.lang.Integer">
+    select count(*) from v_orders
+  </select>
+
+  <select id="selectOrders" resultType="java.util.Map">
+    select * from v_orders limit #{skipNum},#{pageSize}
+  </select>
 </mapper>

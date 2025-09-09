@@ -3,6 +3,7 @@ package com.ncwu.tijiancmsserver.controller;
 import com.ncwu.tijiancmsserver.mapper.DoctorMapper;
 import com.ncwu.tijiancmsserver.service.DoctorService;
 import com.ncwu.tijiancmsserver.model.Doctor;
+import com.ncwu.tijiancmsserver.vo.DoctorVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,7 +52,13 @@ public class DoctorController {
                 map.get("docCode").toString(),
                 map.get("password").toString());
         if (doctor != null){
-            return doctor;
+            DoctorVO doctorVO = new DoctorVO();
+            doctorVO.setRealName(doctor.getRealname());
+            doctorVO.setSex(doctor.getSex());
+            doctorVO.setDeptNo(doctor.getDeptno());
+            doctorVO.setDocId(doctor.getDocid());
+            doctorVO.setDocCode(doctor.getDoccode());
+            return doctorVO;
         }
         return "";
     }
