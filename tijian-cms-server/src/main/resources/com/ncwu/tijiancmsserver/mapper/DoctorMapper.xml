@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neudeu.tijiancmsserver.mapper.DoctorMapper">
+  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Doctor">
+    <!--@mbg.generated-->
+    <!--@Table doctor-->
+    <id column="docId" jdbcType="INTEGER" property="docid" />
+    <result column="docCode" jdbcType="VARCHAR" property="doccode" />
+    <result column="realName" jdbcType="VARCHAR" property="realname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="deptno" jdbcType="INTEGER" property="deptno" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    docId, docCode, realName, `password`, sex, deptno
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from doctor
+    where docId = #{docid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from doctor
+    where docId = #{docid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="docId" keyProperty="docid" parameterType="com.neudeu.tijiancmsserver.model.Doctor" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into doctor (docCode, realName, `password`, 
+      sex, deptno)
+    values (#{doccode,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=INTEGER}, #{deptno,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="docId" keyProperty="docid" parameterType="com.neudeu.tijiancmsserver.model.Doctor" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into doctor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="doccode != null">
+        docCode,
+      </if>
+      <if test="realname != null">
+        realName,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="deptno != null">
+        deptno,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="doccode != null">
+        #{doccode,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="deptno != null">
+        #{deptno,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Doctor">
+    <!--@mbg.generated-->
+    update doctor
+    <set>
+      <if test="doccode != null">
+        docCode = #{doccode,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        realName = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="deptno != null">
+        deptno = #{deptno,jdbcType=INTEGER},
+      </if>
+    </set>
+    where docId = #{docid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Doctor">
+    <!--@mbg.generated-->
+    update doctor
+    set docCode = #{doccode,jdbcType=VARCHAR},
+      realName = #{realname,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      deptno = #{deptno,jdbcType=INTEGER}
+    where docId = #{docid,jdbcType=INTEGER}
+  </update>
+</mapper>

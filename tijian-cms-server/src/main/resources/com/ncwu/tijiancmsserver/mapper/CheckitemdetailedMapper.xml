@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neudeu.tijiancmsserver.mapper.CheckitemdetailedMapper">
+  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Checkitemdetailed">
+    <!--@mbg.generated-->
+    <!--@Table checkitemdetailed-->
+    <id column="cdId" jdbcType="INTEGER" property="cdid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="minrange" jdbcType="DOUBLE" property="minrange" />
+    <result column="maxrange" jdbcType="DOUBLE" property="maxrange" />
+    <result column="normalValue" jdbcType="VARCHAR" property="normalvalue" />
+    <result column="normalValueString" jdbcType="VARCHAR" property="normalvaluestring" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="ciId" jdbcType="INTEGER" property="ciid" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cdId, `name`, unit, minrange, maxrange, normalValue, normalValueString, `type`, ciId, 
+    remarks
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from checkitemdetailed
+    where cdId = #{cdid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from checkitemdetailed
+    where cdId = #{cdid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="cdId" keyProperty="cdid" parameterType="com.neudeu.tijiancmsserver.model.Checkitemdetailed" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into checkitemdetailed (`name`, unit, minrange, 
+      maxrange, normalValue, normalValueString, 
+      `type`, ciId, remarks
+      )
+    values (#{name,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{minrange,jdbcType=DOUBLE}, 
+      #{maxrange,jdbcType=DOUBLE}, #{normalvalue,jdbcType=VARCHAR}, #{normalvaluestring,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{ciid,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="cdId" keyProperty="cdid" parameterType="com.neudeu.tijiancmsserver.model.Checkitemdetailed" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into checkitemdetailed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="minrange != null">
+        minrange,
+      </if>
+      <if test="maxrange != null">
+        maxrange,
+      </if>
+      <if test="normalvalue != null">
+        normalValue,
+      </if>
+      <if test="normalvaluestring != null">
+        normalValueString,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="ciid != null">
+        ciId,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="minrange != null">
+        #{minrange,jdbcType=DOUBLE},
+      </if>
+      <if test="maxrange != null">
+        #{maxrange,jdbcType=DOUBLE},
+      </if>
+      <if test="normalvalue != null">
+        #{normalvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="normalvaluestring != null">
+        #{normalvaluestring,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="ciid != null">
+        #{ciid,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Checkitemdetailed">
+    <!--@mbg.generated-->
+    update checkitemdetailed
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="minrange != null">
+        minrange = #{minrange,jdbcType=DOUBLE},
+      </if>
+      <if test="maxrange != null">
+        maxrange = #{maxrange,jdbcType=DOUBLE},
+      </if>
+      <if test="normalvalue != null">
+        normalValue = #{normalvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="normalvaluestring != null">
+        normalValueString = #{normalvaluestring,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="ciid != null">
+        ciId = #{ciid,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cdId = #{cdid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Checkitemdetailed">
+    <!--@mbg.generated-->
+    update checkitemdetailed
+    set `name` = #{name,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      minrange = #{minrange,jdbcType=DOUBLE},
+      maxrange = #{maxrange,jdbcType=DOUBLE},
+      normalValue = #{normalvalue,jdbcType=VARCHAR},
+      normalValueString = #{normalvaluestring,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      ciId = #{ciid,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where cdId = #{cdid,jdbcType=INTEGER}
+  </update>
+</mapper>

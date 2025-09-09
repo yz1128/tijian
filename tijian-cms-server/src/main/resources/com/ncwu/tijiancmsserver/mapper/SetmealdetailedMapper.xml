@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neudeu.tijiancmsserver.mapper.SetmealdetailedMapper">
+  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Setmealdetailed">
+    <!--@mbg.generated-->
+    <!--@Table setmealdetailed-->
+    <id column="sdId" jdbcType="INTEGER" property="sdid" />
+    <result column="smId" jdbcType="INTEGER" property="smid" />
+    <result column="ciId" jdbcType="INTEGER" property="ciid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    sdId, smId, ciId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from setmealdetailed
+    where sdId = #{sdid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from setmealdetailed
+    where sdId = #{sdid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="sdId" keyProperty="sdid" parameterType="com.neudeu.tijiancmsserver.model.Setmealdetailed" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into setmealdetailed (smId, ciId)
+    values (#{smid,jdbcType=INTEGER}, #{ciid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="sdId" keyProperty="sdid" parameterType="com.neudeu.tijiancmsserver.model.Setmealdetailed" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into setmealdetailed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smid != null">
+        smId,
+      </if>
+      <if test="ciid != null">
+        ciId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smid != null">
+        #{smid,jdbcType=INTEGER},
+      </if>
+      <if test="ciid != null">
+        #{ciid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Setmealdetailed">
+    <!--@mbg.generated-->
+    update setmealdetailed
+    <set>
+      <if test="smid != null">
+        smId = #{smid,jdbcType=INTEGER},
+      </if>
+      <if test="ciid != null">
+        ciId = #{ciid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sdId = #{sdid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Setmealdetailed">
+    <!--@mbg.generated-->
+    update setmealdetailed
+    set smId = #{smid,jdbcType=INTEGER},
+      ciId = #{ciid,jdbcType=INTEGER}
+    where sdId = #{sdid,jdbcType=INTEGER}
+  </update>
+</mapper>

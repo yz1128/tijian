@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neudeu.tijiancmsserver.mapper.OverallresultMapper">
+  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Overallresult">
+    <!--@mbg.generated-->
+    <!--@Table overallresult-->
+    <id column="orId" jdbcType="INTEGER" property="orid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="orderId" jdbcType="INTEGER" property="orderid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    orId, title, content, orderId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from overallresult
+    where orId = #{orid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from overallresult
+    where orId = #{orid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="orId" keyProperty="orid" parameterType="com.neudeu.tijiancmsserver.model.Overallresult" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into overallresult (title, content, orderId
+      )
+    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{orderid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="orId" keyProperty="orid" parameterType="com.neudeu.tijiancmsserver.model.Overallresult" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into overallresult
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="orderid != null">
+        orderId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Overallresult">
+    <!--@mbg.generated-->
+    update overallresult
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        orderId = #{orderid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where orId = #{orid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Overallresult">
+    <!--@mbg.generated-->
+    update overallresult
+    set title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      orderId = #{orderid,jdbcType=INTEGER}
+    where orId = #{orid,jdbcType=INTEGER}
+  </update>
+</mapper>

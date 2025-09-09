@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neudeu.tijiancmsserver.mapper.HospitalMapper">
+  <resultMap id="BaseResultMap" type="com.neudeu.tijiancmsserver.model.Hospital">
+    <!--@mbg.generated-->
+    <!--@Table hospital-->
+    <id column="hpId" jdbcType="INTEGER" property="hpid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="picture" jdbcType="LONGVARCHAR" property="picture" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="businessHours" jdbcType="VARCHAR" property="businesshours" />
+    <result column="deadline" jdbcType="VARCHAR" property="deadline" />
+    <result column="rule" jdbcType="VARCHAR" property="rule" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    hpId, `name`, picture, telephone, address, businessHours, deadline, `rule`, `state`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from hospital
+    where hpId = #{hpid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from hospital
+    where hpId = #{hpid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="hpId" keyProperty="hpid" parameterType="com.neudeu.tijiancmsserver.model.Hospital" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hospital (`name`, picture, telephone, 
+      address, businessHours, deadline, 
+      `rule`, `state`)
+    values (#{name,jdbcType=VARCHAR}, #{picture,jdbcType=LONGVARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{businesshours,jdbcType=VARCHAR}, #{deadline,jdbcType=VARCHAR}, 
+      #{rule,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="hpId" keyProperty="hpid" parameterType="com.neudeu.tijiancmsserver.model.Hospital" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into hospital
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="picture != null">
+        picture,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="businesshours != null">
+        businessHours,
+      </if>
+      <if test="deadline != null">
+        deadline,
+      </if>
+      <if test="rule != null">
+        `rule`,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        #{picture,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="businesshours != null">
+        #{businesshours,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=VARCHAR},
+      </if>
+      <if test="rule != null">
+        #{rule,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neudeu.tijiancmsserver.model.Hospital">
+    <!--@mbg.generated-->
+    update hospital
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        picture = #{picture,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="businesshours != null">
+        businessHours = #{businesshours,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        deadline = #{deadline,jdbcType=VARCHAR},
+      </if>
+      <if test="rule != null">
+        `rule` = #{rule,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where hpId = #{hpid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neudeu.tijiancmsserver.model.Hospital">
+    <!--@mbg.generated-->
+    update hospital
+    set `name` = #{name,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=LONGVARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      businessHours = #{businesshours,jdbcType=VARCHAR},
+      deadline = #{deadline,jdbcType=VARCHAR},
+      `rule` = #{rule,jdbcType=VARCHAR},
+      `state` = #{state,jdbcType=INTEGER}
+    where hpId = #{hpid,jdbcType=INTEGER}
+  </update>
+</mapper>
