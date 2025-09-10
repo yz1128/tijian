@@ -23,4 +23,16 @@ public class OverallResultController {
             overallResultService.selectByOrderId(params.get("orderId").toString());
         return list;
     }
+    
+    @RequestMapping("/removeOverallResult")
+    public Object removeOverallResult(@RequestBody Map params){
+        overallResultService.removeOverallResult(params.get("orId").toString());
+        return 1;
+    }
+    
+    @RequestMapping("/saveOverallResult")
+    public Object saveOverallResult(@RequestBody Map params){
+        overallResultService.saveOverallResult(params);
+        return 1;
+    }
 }
