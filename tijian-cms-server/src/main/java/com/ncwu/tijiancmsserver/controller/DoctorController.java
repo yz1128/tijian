@@ -37,7 +37,6 @@ public class DoctorController {
      */
     @RequestMapping("/getDoctorByCodeByPass")
     public Object getDoctorByCodeByPass(@RequestBody Map map ) {
-        System.out.println(map);
         /*
           调用医生登录业务方式
           参数为医生编码和密码

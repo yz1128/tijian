@@ -24,9 +24,6 @@ public class OrdersController {
 
     @RequestMapping("/listOrders")
     public Object listOrders(@RequestBody Map params) {
-        System.out.println(params);
-        System.out.println("listOrders");
-
         String userId = (String) params.get("userId");
         String realName = (String) params.get("realName");
         String sex = (String) params.get("sex");

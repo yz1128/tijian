@@ -28,7 +28,6 @@ public class CiReportController {
     @RequestMapping("/listCiReport")
     public Object listCiReport(@RequestBody Map params) {
         List<Map> listMap = cireportService.selectCiReportById(params.get("orderId").toString());
-        System.out.println("listMap =" + listMap);
         return listMap;
     }
 }

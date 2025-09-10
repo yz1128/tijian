@@ -56,7 +56,6 @@ public class OrderServiceImpl implements OrdersService {
     @Override
     public Map getOrdersById(String orderId) {
         Map orderMap = ordersMapper.selectById(orderId);
-        System.out.println(orderMap);
         Map dataMap = new HashMap();
         dataMap.put("orderId", orderId);
         dataMap.put("userId", orderMap.get("userId"));

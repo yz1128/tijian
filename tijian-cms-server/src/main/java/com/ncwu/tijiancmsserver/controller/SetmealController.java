@@ -21,7 +21,6 @@ public class SetmealController {
     @PostMapping("/listSetmeal")
     public List<Setmeal> listSetmeal() {
         // 调用service层的listSetmeal方法获取套餐列表并返回给前端
-        System.out.println(setmealService.listSetmeal());
         return setmealService.listSetmeal();
     }
 }
