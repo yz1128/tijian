@@ -93,4 +93,15 @@
       remarks = #{remarks,jdbcType=VARCHAR}
     where ciId = #{ciid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectCiIdBySmId" resultType="java.util.Map">
+    select ci.ciId,ci.ciName from
+        checkitem ci
+    inner join
+        setmealdetailed sd
+    on
+        ci.ciId=sd.ciId
+    where
+        sd.smId=#{smId}
+  </select>
 </mapper>

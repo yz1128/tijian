@@ -2,6 +2,9 @@ package com.ncwu.tijiancmsserver.mapper;
 
 import com.ncwu.tijiancmsserver.model.Checkitem;
 
+import java.util.List;
+import java.util.Map;
+
 public interface CheckitemMapper {
     int deleteByPrimaryKey(Integer ciid);
 
@@ -14,4 +17,6 @@ public interface CheckitemMapper {
     int updateByPrimaryKeySelective(Checkitem record);
 
     int updateByPrimaryKey(Checkitem record);
+
+    List<Map> selectCiIdBySmId(String smId);
 }

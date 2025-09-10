@@ -3,15 +3,12 @@ package com.ncwu.tijiancmsserver.controller;
 import com.ncwu.tijiancmsserver.mapper.OrdersMapper;
 import com.ncwu.tijiancmsserver.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -24,20 +21,39 @@ public class OrdersController {
     private OrdersMapper ordersMapper;
 
     @RequestMapping("/listOrders")
-    public Object listOrders(@RequestBody Map map) {
-        System.out.println(map);
+    public Object listOrders(@RequestBody Map params) {
+        System.out.println(params);
         System.out.println("listOrders");
 
-        Integer pageNum = (Integer)map.get("pageNum");
-        Integer pageSize = (Integer)map.get("maxPageNum");
+        String userId = (String) params.get("userId");
+        String realName = (String) params.get("realName");
+        String sex = (String) params.get("sex");
+        String smId = null;
+        if (params.get("smId") != null) {
+            smId = params.get("smId").toString();
+        } else {
+            // 这里可以给 smId 一个默认值，比如空字符串或者其他符合业务逻辑的值
+            smId = "";
+        }
+        String orderDate = (String) params.get("orderDate");
+        String state = (String) params.get("state");
 
-        List<Map> list = ordersService.listOrder(pageNum,pageSize);
-        Integer total = ordersMapper.selectCount();
-        Map<String, Object> result = new HashMap<>();
-        result.put("list", list);
-        result.put("totalRow", total);
-        result.put("maxPageNum", pageNum);
-        System.out.println(result);
-        return result;
+
+        Integer pageNum = (Integer)params.get("pageNum");
+        Integer pageSize = (Integer)params.get("maxPageNum");
+
+        /**
+         * 由于前端需要的是分页数据，因此后端需要返回一个Map集合或专门用于封装
+         */
+        Map map = ordersService.listOrder(pageNum,pageSize ,userId,realName,sex,smId,orderDate,state);
+        return map;
     }
+
+    @RequestMapping("/getOrdersById")
+    public Object getOrdersById(@RequestBody Map params) {
+        String orderId = (String) params.get("orderId");
+        Map map = ordersService.getOrdersById(orderId);
+        return map;
+    }
+
 }

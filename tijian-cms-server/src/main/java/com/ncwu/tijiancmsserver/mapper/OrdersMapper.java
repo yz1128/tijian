@@ -19,7 +19,21 @@ public interface OrdersMapper {
 
     int updateByPrimaryKey(Orders record);
 
-    Integer selectCount();
+    Integer selectCount(@Param("userId") String userId,
+                        @Param("realName") String realName,
+                        @Param("sex") String sex,
+                        @Param("smId") String smId,
+                        @Param("orderDate") String orderDate,
+                        @Param("state") String state);
 
-    List<Map> selectOrders(@Param("skipNum") Integer skipNum, @Param("pageSize") Integer pageSize);
+    List<Map> selectOrders(@Param("skipNum") Integer skipNum,
+                           @Param("pageSize") Integer pageSize,
+                           @Param("userId") String userId,
+                           @Param("realName") String realName,
+                           @Param("sex") String sex,
+                           @Param("smId") String smId,
+                           @Param("orderDate") String orderDate,
+                           @Param("state") String state);
+
+    Map selectById(String orderId);
 }

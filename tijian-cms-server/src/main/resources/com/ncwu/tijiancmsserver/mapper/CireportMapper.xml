@@ -82,4 +82,9 @@
       orderId = #{orderid,jdbcType=INTEGER}
     where cirId = #{cirid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectByOrderId" resultType="java.util.Map">
+    select * from cireport where orderId=#{orderId}
+  </select>
+
 </mapper>
