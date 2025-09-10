@@ -153,4 +153,9 @@
       remarks = #{remarks,jdbcType=VARCHAR}
     where cdId = #{cdid,jdbcType=INTEGER}
   </update>
+  
+  <!-- 根据检查项ID查询检查项的所有明细数据 -->
+  <select id="selectByCiId" resultType="com.ncwu.tijiancmsserver.model.Checkitemdetailed">
+    select * from checkitemdetailed where ciId = #{ciId}
+  </select>
 </mapper>
