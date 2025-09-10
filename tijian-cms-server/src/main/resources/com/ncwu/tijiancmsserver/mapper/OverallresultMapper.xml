@@ -82,4 +82,8 @@
       orderId = #{orderid,jdbcType=INTEGER}
     where orId = #{orid,jdbcType=INTEGER}
   </update>
+  <!-- 根据预约编号查询总检结论 -->
+  <select id="selectByOrderId" resultType="java.util.Map">
+    select * from overallresult where orderId = #{orderId}
+  </select>
 </mapper>

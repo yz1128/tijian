@@ -68,6 +68,7 @@ public class OrderServiceImpl implements OrdersService {
         setmealMap.put("name", orderMap.get("setmealName"));
         dataMap.put("setmeal", setmealMap);
         dataMap.put("orderDate", orderMap.get("orderDate"));
+        dataMap.put("state", orderMap.get("state"));
         return dataMap;
     }
 }

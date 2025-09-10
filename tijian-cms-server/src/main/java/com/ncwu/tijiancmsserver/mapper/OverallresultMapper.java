@@ -2,6 +2,9 @@ package com.ncwu.tijiancmsserver.mapper;
 
 import com.ncwu.tijiancmsserver.model.Overallresult;
 
+import java.util.List;
+import java.util.Map;
+
 public interface OverallresultMapper {
     int deleteByPrimaryKey(Integer orid);
 
@@ -14,4 +17,5 @@ public interface OverallresultMapper {
     int updateByPrimaryKeySelective(Overallresult record);
 
     int updateByPrimaryKey(Overallresult record);
+    List<Map> selectByOrderId(String orderId);
 }
