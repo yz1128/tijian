@@ -11,9 +11,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Service
 public class OrderServiceImpl implements OrdersService {
-
+    private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
+    
     @Autowired
     private OrdersMapper ordersMapper;
 
@@ -70,5 +74,13 @@ public class OrderServiceImpl implements OrdersService {
         dataMap.put("orderDate", orderMap.get("orderDate"));
         dataMap.put("state", orderMap.get("state"));
         return dataMap;
+    }
+
+    @Override
+    public void updateOrdersState(Integer orderId, Integer state) {
+        Orders orders=new Orders();
+        orders.setOrderid(orderId);
+        orders.setState(state);
+        ordersMapper.updateByPrimaryKeySelective(orders);
     }
 }
