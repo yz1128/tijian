@@ -7,4 +7,5 @@ public interface OverallResultService {
     List<Map> selectByOrderId(String orderId);
     void removeOverallResult(String orId);
     void saveOverallResult(Map params);
+    void updateOverallResult(Map params);
 }

@@ -32,4 +32,14 @@ public class OverallResultServiceImpl implements OverallResultService {
         overallresult.setContent(params.get("content").toString());
         overallresultMapper.insert(overallresult);
     }
+
+    @Override
+    public void updateOverallResult(Map params) {
+        Overallresult overallresult = new Overallresult();
+        overallresult.setOrid(Integer.valueOf(params.get("orId").toString()));
+        overallresult.setTitle(params.get("title").toString());
+        overallresult.setContent(params.get("content").toString());
+        overallresult.setOrderid(Integer.valueOf(params.get("orderId").toString()));
+        overallresultMapper.updateByPrimaryKeySelective(overallresult);
+    }
 }

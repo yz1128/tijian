@@ -35,4 +35,10 @@ public class OverallResultController {
         overallResultService.saveOverallResult(params);
         return 1;
     }
+
+    @RequestMapping("/updateOverallResult")
+    public Object updateOverallResult(@RequestBody Map params){
+        overallResultService.updateOverallResult(params);
+        return 1;
+    }
 }
