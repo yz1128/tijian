@@ -60,9 +60,21 @@ public class CireportServiceImpl implements CireportService {
         return 0;
     }
 
+    // 修改selectCiReportById方法
     @Override
     public List<Map> selectCiReportById(String orderId) {
         List<Map> list = cireportMapper.selectByOrderId(orderId);
+        
+        // 为每个检查项添加检查项明细数据
+        for (Map ci : list) {
+            // 查询该检查项的所有明细
+            List<Map> cidrList = cidetailedreportMapper.selectByCiIdAndOrderId(
+                Integer.valueOf(ci.get("ciId").toString()), 
+                Integer.valueOf(orderId)
+            );
+            ci.put("cidrList", cidrList);
+        }
+        
         return list;
     }
 }

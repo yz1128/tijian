@@ -175,4 +175,23 @@
       orderId = #{orderid,jdbcType=INTEGER}
     where cidrId = #{cidrid,jdbcType=INTEGER}
   </update>
+  <!-- 在文件末尾添加以下内容 -->
+  <select id="selectByCiIdAndOrderId" resultType="java.util.Map">
+    select * from cidetailedreport where ciId=#{ciId} and orderId=#{orderId}
+  </select>
+  
+  <update id="batchUpdate">
+    <foreach collection="list" item="item" index="index" separator=";">
+      update cidetailedreport
+      <set>
+        <if test="item.value != null">
+          value = #{item.value,jdbcType=VARCHAR},
+        </if>
+        <if test="item.iserror != null">
+          iserror = #{item.iserror,jdbcType=INTEGER}
+        </if>
+      </set>
+      where cidrid = #{item.cidrid,jdbcType=INTEGER}
+    </foreach>
+  </update>
 </mapper>
