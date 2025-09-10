@@ -20,11 +20,7 @@ public class CiDetailedReportController {
 
     @RequestMapping("/updateCiDetailedReport")
     public Object updateCiDetailedReport(@RequestBody List<Map> params) {
-        int count = 0;
-        for (Map param : params) {
-            // 更新每个检查项明细
-            count += cidetailedreportService.updateByPrimaryKeySelective(param);
-        }
-        return count;
+            cidetailedreportService.updateCiDetailedReport(params);
+        return 1;
     }
 }

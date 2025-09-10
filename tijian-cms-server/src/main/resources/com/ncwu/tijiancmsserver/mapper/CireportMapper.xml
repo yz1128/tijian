@@ -84,7 +84,10 @@
   </update>
 
   <select id="selectByOrderId" resultType="java.util.Map">
-    select * from cireport where orderId=#{orderId}
+    select DISTINCT ciId, ciName, orderId from cireport where orderId=#{orderId}
+  </select>
+  <select id="selectCountByOrderId" resultType="java.lang.Integer">
+    select count(*) from cireport where orderId=#{orderId}
   </select>
 
 </mapper>

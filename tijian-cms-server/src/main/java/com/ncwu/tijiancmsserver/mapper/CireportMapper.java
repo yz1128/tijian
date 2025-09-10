@@ -19,4 +19,6 @@ public interface CireportMapper {
     int updateByPrimaryKey(Cireport record);
 
     List<Map> selectByOrderId(String orderId);
+
+    Integer selectCountByOrderId(String orderId);
 }

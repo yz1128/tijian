@@ -5,7 +5,9 @@ import com.ncwu.tijiancmsserver.model.Cidetailedreport;
 import com.ncwu.tijiancmsserver.service.CidetailedreportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -15,11 +17,14 @@ public class CidetailedreportServiceImpl implements CidetailedreportService {
     private CidetailedreportMapper cidetailedreportMapper;
 
     @Override
-    public int updateByPrimaryKeySelective(Map param) {
-        Cidetailedreport record = new Cidetailedreport();
-        record.setCidrid(Integer.valueOf(param.get("cidrId").toString()));
-        record.setValue(param.get("value").toString());
-        record.setIserror(Integer.valueOf(param.get("isError").toString()));
-        return cidetailedreportMapper.updateByPrimaryKeySelective(record);
+    @Transactional
+    public void updateCiDetailedReport(List<Map> params) {
+        for(Map map : params) {
+            Cidetailedreport cidetailedreport = new Cidetailedreport();
+            cidetailedreport.setCidrid(Integer.valueOf(map.get("cidrId").toString()));
+            cidetailedreport.setValue(map.get("value").toString());
+            cidetailedreport.setIserror(Integer.parseInt(map.get("isError").toString()));
+            cidetailedreportMapper.updateByPrimaryKeySelective(cidetailedreport);
+        }
     }
 }
