@@ -1,7 +1,6 @@
 package com.ncwu.tijiancmsserver.service.impl;
 
 import com.ncwu.tijiancmsserver.mapper.OrdersMapper;
-import com.ncwu.tijiancmsserver.mapper.SetmealMapper;
 import com.ncwu.tijiancmsserver.model.Orders;
 import com.ncwu.tijiancmsserver.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +10,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Service
 public class OrderServiceImpl implements OrdersService {
-    private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
     
     @Autowired
     private OrdersMapper ordersMapper;
